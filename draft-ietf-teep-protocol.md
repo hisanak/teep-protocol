@@ -1240,12 +1240,16 @@ token = 20
                 / TEEP-AES-CCM-16-64-128-HMAC256--256-X25519-EdDSA = 
                       1 (uint .size 8) /
         6 : 0,  / selected-version = 6 (mapkey) : 0 (uint .size 4) /
-        8 : [ [ h'0102030405060708090a0b0c0d0e0f' ],
-              [ h'1102030405060708090a0b0c0d0e0f' ] ]
-                / tc-list = 8 (mapkey) : 
-                      [ [ 0x0102030405060708090a0b0c0d0e0f ],
-                        [ 0x1102030405060708090a0b0c0d0e0f ] ]
-                      (array of bstr) /
+        8 : [   / tc-list = 8 (mapkey) : (array of tc-info) /
+                {
+                    16 : [ 0x0102030405060708090a0b0c0d0e0f ] / component-id = 16 (mapkey) : /
+                    / [ h'0102030405060708090a0b0c0d0e0f' ] (SUIT_Component_Identifier, array of bstr) /
+                },
+                {
+                    16 : [ 0x1102030405060708090a0b0c0d0e0f ] / component-id = 16 (mapkey) : /
+                    / [ h'1102030405060708090a0b0c0d0e0f' ] (SUIT_Component_Identifier, array of bstr) /
+                }
+            ]
     }
 ]
 ~~~~
@@ -1265,12 +1269,16 @@ token = 20
       00                  # unsigned(0) within .size 4
       08                  # unsigned(8)
       82                  # array(2)
-         81               # array(1)
-            4F            # bytes(15)
-               0102030405060708090A0B0C0D0D0F
-         81               # array(1)
-            4F            # bytes(15)
-               1102030405060708090A0B0C0D0D0F
+         A1               # map(1)
+            10            # unsigned(16)
+            81            # array(1)
+               4F         # bytes(15)
+                  0102030405060708090A0B0C0D0D0F
+         A1               # map(1)
+            10            # unsigned(16)
+            81            # array(1)
+               4F         # bytes(15)
+                  1102030405060708090A0B0C0D0D0F
 ~~~~
 
 ## Update Message
