@@ -1205,7 +1205,7 @@ token = 20
 {: numbered='no'}
 
 ~~~~
-84                        # array(4), 
+83                        # array(3), 
    01                     # unsigned(1)
    A4                     # map(4)
       14                  # unsigned(20)
@@ -1242,7 +1242,7 @@ token = 20
         6 : 0,  / selected-version = 6 (mapkey) : 0 (uint .size 4) /
         8 : [ [ h'0102030405060708090a0b0c0d0e0f' ],
               [ h'1102030405060708090a0b0c0d0e0f' ] ]
-                / ta-list = 8 (mapkey) : 
+                / tc-list = 8 (mapkey) : 
                       [ [ 0x0102030405060708090a0b0c0d0e0f ],
                         [ 0x1102030405060708090a0b0c0d0e0f ] ]
                       (array of bstr) /
@@ -1254,7 +1254,7 @@ token = 20
 {: numbered='no'}
 
 ~~~~
-83                        # array(3)
+82                        # array(2)
    02                     # unsigned(2)
    A4                     # map(4)
       14                  # unsigned(20)
@@ -1266,10 +1266,10 @@ token = 20
       08                  # unsigned(8)
       82                  # array(2)
          81               # array(1)
-            4F            # bytes(16)
+            4F            # bytes(15)
                0102030405060708090A0B0C0D0D0F
          81               # array(1)
-            4F            # bytes(16)
+            4F            # bytes(15)
                1102030405060708090A0B0C0D0D0F
 ~~~~
 
@@ -1297,7 +1297,7 @@ token = 20
 {: numbered='no'}
 
 ~~~~
-83                        # array(3)
+82                        # array(2)
    03                     # unsigned(3)
    A2                     # map(2)
       14                  # unsigned(20)
@@ -1330,8 +1330,8 @@ token = 20
 82                        # array(2)
     05                    # unsigned(5)
     A1                    # map(1)
-    14                    # unsigned(20)
-    1A 77777778           # unsigned(2004318072, 0x77777778)
+       14                    # unsigned(20)
+       1A 77777778           # unsigned(2004318072, 0x77777778)
 ~~~~
 
 
@@ -1360,9 +1360,9 @@ token = 20
 {: numbered='no'}
 
 ~~~~
-84                        # array(4)
+83                        # array(3)
     06                    # unsigned(6)
-    A1                    # map(1)
+    A2                    # map(2)
        14                 # unsigned(20)
        1A 77777778        # unsigned(2004318072, 0x77777778)
        0C                 # unsigned(12)
